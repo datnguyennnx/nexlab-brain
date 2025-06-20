@@ -15,7 +15,7 @@ class GenerationService:
         self.model = model
 
     def _build_prompt(self, user_query: str, context_docs: List[Dict], history: List[Dict[str, str]] = None) -> str:
-        """Builds the prompt for the LLM."""
+        """Builds the user prompt (context + history + query only)."""
         context_str = "\n\n---\n\n".join([doc['content'] for doc in context_docs])
 
         history_str = ""
@@ -23,7 +23,22 @@ class GenerationService:
             history_str = "\n".join([f"{msg['role']}: {msg['content']}" for msg in history])
             history_str = f"Lịch sử cuộc trò chuyện:\n{history_str}\n"
 
+        # Only include context, history, and user query - no system instructions
         prompt = f"""
+            {history_str}
+            Bối cảnh tài liệu:
+            {context_str}
+
+            Câu hỏi của người dùng:
+            {user_query}
+
+            Câu trả lời của bạn:
+        """
+        return prompt
+
+    def _get_system_prompt(self) -> str:
+        """Returns the system prompt with role definition and instructions."""
+        return """
             Bạn là trợ lý AI chăm sóc khách hàng chuyên nghiệp và thân thiện của Viện thẩm mỹ Diva. Mục tiêu chính của bạn là cung cấp các câu trả lời chính xác, hữu ích CHỈ dựa trên ngữ cảnh tài liệu được cung cấp. Bạn phải luôn giao tiếp bằng tiếng Việt với giọng điệu ấm áp và chuyên nghiệp.
 
             Hãy làm theo các bước sau để tạo phản hồi của bạn, đảm bảo tính nhất quán và chất lượng cao:
@@ -54,18 +69,7 @@ class GenerationService:
             * **KHÔNG BAO GIỜ cung cấp câu trả lời không được hỗ trợ trực tiếp và rõ ràng bởi "Bối cảnh tài liệu"**.
             * **LUÔN LUÔN tuân thủ đúng định dạng phản hồi bắt buộc**.
             * **LUÔN LUÔN phản hồi bằng tiếng Việt**.
-
-            ---
-            {history_str}
-            Bối cảnh tài liệu:
-            {context_str}
-
-            Câu hỏi của người dùng:
-            {user_query}
-
-            Câu trả lời của bạn:
         """
-        return prompt
 
     async def generate_response(self, user_query: str, context_docs: List[Dict], **kwargs) -> str:
         """
@@ -86,7 +90,7 @@ class GenerationService:
                 response = await client.chat.completions.create(
                     model=self.model,
                     messages=[
-                        {"role": "system", "content": "You are a helpful assistant fluent in Vietnamese."},
+                        {"role": "system", "content": self._get_system_prompt()},
                         {"role": "user", "content": prompt}
                     ],
                     temperature=0.1,
@@ -112,7 +116,7 @@ class GenerationService:
         prompt = self._build_prompt(user_query, context_docs, history)
         
         messages = [
-            {"role": "system", "content": "You are a helpful assistant fluent in Vietnamese."},
+            {"role": "system", "content": self._get_system_prompt()},
             {"role": "user", "content": prompt}
         ]
         
