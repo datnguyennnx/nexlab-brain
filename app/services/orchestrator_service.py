@@ -1,6 +1,7 @@
 import json
 from typing import AsyncGenerator, List, Dict
 from langfuse import observe
+import logging
 
 from ..services.rag_service import RAGService
 from ..services.openai_chat_service import OpenAIChatService
@@ -28,25 +29,22 @@ class OrchestratorService:
         """
         history_str = "\\n".join([f"{msg['role']}: {msg['content']}" for msg in history])
 
-        prompt = f"""
-        You are an expert linguistic analyst for a customer service chatbot at Diva Beauty Salon (Viện thẩm mỹ Diva).
-        Your task is to analyze the user's query in Vietnamese and classify it into one of two categories: `rag_query` or `chat_query`.
+        system_prompt = """
+        Bạn là chuyên gia phân tích ngôn ngữ cho chatbot chăm sóc khách hàng tại Viện thẩm mỹ Diva.
+        Nhiệmvụ của bạn là phân tích câu hỏi của người dùng bằng tiếng Việt và phân loại thành một trong hai loại: `rag_query` hoặc `chat_query`.
 
-        Follow these steps to determine the classification:
-        1.  **Analyze Query**: What is the core intent of the user's latest message? Are they asking for specific facts (price, location, how-to) or engaging in conversation?
-        2.  **Evaluate against Categories**:
-            - `rag_query`: The user needs specific, factual information that must be looked up in the knowledge base. Examples: "giá dịch vụ X là bao nhiêu?", "địa chỉ chi nhánh Y?", "hướng dẫn đặt lịch hẹn".
-            - `chat_query`: The user is having a general conversation. Examples: "xin chào", "cảm ơn bạn", "bạn là ai vậy?".
-        3.  **Conclusion**: Based on your analysis, provide ONLY the final classification (`rag_query` or `chat_query`) and nothing else.
+        - `rag_query` được sử dụng khi người dùng cần thông tin cụ thể, thực tế phải được tra cứu trong cơ sở tri thức, chẳng hạn như hỏi về giá cả, dịch vụ, địa chỉ, hoặc hướng dẫn.
+        - `chat_query` được sử dụng cho các cuộc trò chuyện thông thường, chẳng hạn như chào hỏi, cảm ơn, hoặc các cuộc trò chuyện xã giao.
 
-        ---
-        Conversation History:
+        Chỉ trả lời bằng `rag_query` hoặc `chat_query`.
+        """
+
+        user_prompt = f"""
+        Lịch sử hội thoại:
         {history_str}
 
-        User Query:
+        Câu hỏi người dùng:
         {user_query}
-
-        Classification:
         """
         
         with langfuse.start_as_current_span(
@@ -57,7 +55,8 @@ class OrchestratorService:
                 response = await self.chat_service.client.chat.completions.create(
                     model=self.routing_model,
                     messages=[
-                        {"role": "user", "content": prompt}
+                        {"role": "system", "content": system_prompt},
+                        {"role": "user", "content": user_prompt}
                     ],
                     temperature=0,
                     max_tokens=10,
@@ -67,7 +66,14 @@ class OrchestratorService:
                 span.update(output=decision)
 
                 if decision not in ["rag_query", "chat_query"]:
-                    return "rag_query"
+                    # Simple heuristic fallback
+                    query_lower = user_query.lower().strip()
+                    greeting_keywords = ['xin chào', 'chào', 'hello', 'hi', 'cảm ơn', 'thanks']
+                    
+                    if any(keyword in query_lower for keyword in greeting_keywords):
+                        return "chat_query"
+                    else:
+                        return "rag_query"
                 return decision
             except Exception as e:
                 span.update(level="ERROR", status_message=str(e))
@@ -80,6 +86,10 @@ class OrchestratorService:
         Orchestrates the response generation by routing between RAG and simple chat,
         and centrally handles saving the assistant's final message.
         """
+        if not user_message.content or not user_message.content.strip():
+            yield f"data: {json.dumps({'type': 'error', 'data': {'message': 'Tin nhắn không được để trống'}})}\\n\\n"
+            return
+            
         with langfuse.start_as_current_span(
             name="request-orchestration",
             input={"query": user_message.content}
@@ -123,13 +133,17 @@ class OrchestratorService:
                             event_data = json.loads(data_str)
                             if event_data.get('type') == 'content_chunk':
                                 final_content += event_data.get('data', {}).get('content', '')
-                        except json.JSONDecodeError:
+                        except json.JSONDecodeError as e:
+                            logging.warning(f"Failed to parse SSE chunk: {chunk[:100]}... Error: {e}")
                             pass
             finally:
                 root_span.update_trace(output={"response": final_content})
-                if final_content:
-                    await self.message_repo.create(
-                        content=final_content,
-                        role=MessageRole.ASSISTANT,
-                        conversation_id=conversation_id
-                    ) 
+                if final_content.strip():
+                    try:
+                        await self.message_repo.create(
+                            content=final_content,
+                            role=MessageRole.ASSISTANT,
+                            conversation_id=conversation_id
+                        )
+                    except Exception as e:
+                        logging.error(f"Failed to save assistant message: {e}") 

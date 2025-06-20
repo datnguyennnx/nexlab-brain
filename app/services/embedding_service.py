@@ -39,17 +39,3 @@ class EmbeddingService:
 
 # Create a singleton instance to be used across the application
 embedding_service = EmbeddingService() 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 

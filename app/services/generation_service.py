@@ -25,7 +25,9 @@ class GenerationService:
 
         # Only include context, history, and user query - no system instructions
         prompt = f"""
+            Lịch sử hội thoại:
             {history_str}
+            
             Bối cảnh tài liệu:
             {context_str}
 
