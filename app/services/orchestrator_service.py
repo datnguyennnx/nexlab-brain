@@ -1,31 +1,32 @@
 import json
 from typing import AsyncGenerator, List, Dict
-from loguru import logger
 from langfuse import observe
 
-from ..services.conversation_service import ConversationService
+from ..services.rag_service import RAGService
 from ..services.openai_chat_service import OpenAIChatService
 from ..models.message import Message, MessageRole
+from ..repositories.message_repository import MessageRepository
 from ..core.langfuse_client import langfuse
 
 
 class OrchestratorService:
     def __init__(
         self,
-        conversation_service: ConversationService,
+        rag_service: RAGService,
         chat_service: OpenAIChatService,
+        message_repo: MessageRepository,
     ):
-        self.conversation_service = conversation_service
+        self.rag_service = rag_service
         self.chat_service = chat_service
-        self.routing_model = "gpt-4o-mini" # Use a fast model for routing
-        self.memory_window_size = 10 # Keep the last 10 messages for context
+        self.message_repo = message_repo
+        self.routing_model = "gpt-4o-mini"
+        self.memory_window_size = 10
 
-    @observe()
     async def _get_routing_decision(self, user_query: str, history: List[Dict[str, str]]) -> str:
         """
         Uses an LLM to decide whether to use the RAG pipeline or a simple chat response.
         """
-        history_str = "\n".join([f"{msg['role']}: {msg['content']}" for msg in history])
+        history_str = "\\n".join([f"{msg['role']}: {msg['content']}" for msg in history])
 
         prompt = f"""
         You are an expert linguistic analyst for a customer service chatbot at Diva Beauty Salon (Viện thẩm mỹ Diva).
@@ -48,81 +49,73 @@ class OrchestratorService:
         Classification:
         """
         
-        try:
-            # The OpenAI call is automatically traced. This observation provides a logical wrapper.
-            response = await self.chat_service.client.chat.completions.create(
-                model=self.routing_model,
-                messages=[
-                    {"role": "user", "content": prompt}
-                ],
-                temperature=0,
-                max_tokens=10,
-            )
-            decision = response.choices[0].message.content.strip()
-            
-            # Update the current Langfuse observation with the output and metadata
-            langfuse.update_current_span(output=decision, metadata={"prompt": prompt})
+        with langfuse.start_as_current_span(
+            name="routing-decision",
+            input={"query": user_query, "history": history}
+        ) as span:
+            try:
+                response = await self.chat_service.client.chat.completions.create(
+                    model=self.routing_model,
+                    messages=[
+                        {"role": "user", "content": prompt}
+                    ],
+                    temperature=0,
+                    max_tokens=10,
+                )
+                decision = response.choices[0].message.content.strip()
+                
+                span.update(output=decision)
 
-            logger.info(f"Routing decision: '{decision}' for query: '{user_query}'")
-            if decision not in ["rag_query", "chat_query"]:
-                logger.warning("Router returned an invalid decision. Defaulting to RAG.")
+                if decision not in ["rag_query", "chat_query"]:
+                    return "rag_query"
+                return decision
+            except Exception as e:
+                span.update(level="ERROR", status_message=str(e))
                 return "rag_query"
-            return decision
-        except Exception as e:
-            # Log errors to Langfuse
-            langfuse.update_current_span(level="ERROR", status_message=str(e))
-            logger.error(f"Error getting routing decision: {e}. Defaulting to RAG.")
-            return "rag_query"
 
-    @observe(name="request-orchestration")
     async def stream_response(
         self, conversation_id: int, user_message: Message
     ) -> AsyncGenerator[str, None]:
         """
-        Orchestrates the response generation by routing between RAG and simple chat.
+        Orchestrates the response generation by routing between RAG and simple chat,
+        and centrally handles saving the assistant's final message.
         """
-        # Add user and session info to the trace for better filtering in Langfuse
-        langfuse.update_current_trace(
-            user_id="nexlab_user_test",
-            session_id=str(conversation_id)
-        )
-
-        history = await self.conversation_service.message_repo.get_by_conversation_id(
-            conversation_id
-        )
-        
-        # The history includes the new user message, so we take the part before it.
-        conversation_history_msgs = history[:-1]
-
-        # Apply the memory window to the history
-        windowed_history_msgs = conversation_history_msgs[-self.memory_window_size:]
-        
-        conversation_history_for_router = [
-            {"role": msg.role.value, "content": msg.content}
-            for msg in windowed_history_msgs
-        ]
-
-        # Get the routing decision
-        routing_decision = await self._get_routing_decision(
-            user_message.content, conversation_history_for_router
-        )
-
-        if routing_decision == "rag_query":
-            logger.info(f"Routing to RAG for conversation {conversation_id}")
-            # Use the existing RAG streaming logic
-            async for chunk in self.conversation_service.stream_rag_response(
+        with langfuse.start_as_current_span(
+            name="request-orchestration",
+            input={"query": user_message.content}
+        ) as root_span:
+            root_span.update_trace(
+                user_id="nexlab_user_test",
+                session_id=str(conversation_id),
+            )
+            history = await self.message_repo.get_by_conversation_id(
                 conversation_id
-            ):
-                yield chunk
-        else:
-            logger.info(f"Routing to Chat for conversation {conversation_id}")
-            # Use the simple chat service
-            # We need to save the assistant's response at the end
+            )
+            
+            conversation_history_msgs = history[:-1]
+            windowed_history_msgs = conversation_history_msgs[-self.memory_window_size:]
+            
+            history_for_llm = [
+                {"role": msg.role.value, "content": msg.content}
+                for msg in windowed_history_msgs
+            ]
+
+            routing_decision = await self._get_routing_decision(
+                user_message.content, history_for_llm
+            )
+            
             final_content = ""
-            # The history for the chat model should include the user's latest message
-            chat_history = conversation_history_for_router + [{"role": user_message.role.value, "content": user_message.content}]
             try:
-                async for chunk in self.chat_service.stream_chat_completion(chat_history):
+                if routing_decision == "rag_query":
+                    stream_generator = self.rag_service.stream_rag_response(
+                        conversation_id, user_message.content, history_for_llm
+                    )
+                else:
+                    chat_history = history_for_llm + [{"role": user_message.role.value, "content": user_message.content}]
+                    stream_generator = self.chat_service.stream_chat_completion(chat_history)
+
+                # Stream response to the client and accumulate final content in parallel
+                async for chunk in stream_generator:
                     yield chunk
                     if chunk.strip().startswith('data:'):
                         try:
@@ -131,10 +124,11 @@ class OrchestratorService:
                             if event_data.get('type') == 'content_chunk':
                                 final_content += event_data.get('data', {}).get('content', '')
                         except json.JSONDecodeError:
-                            pass # Ignore non-json chunks
+                            pass
             finally:
+                root_span.update_trace(output={"response": final_content})
                 if final_content:
-                    await self.conversation_service.message_repo.create(
+                    await self.message_repo.create(
                         content=final_content,
                         role=MessageRole.ASSISTANT,
                         conversation_id=conversation_id

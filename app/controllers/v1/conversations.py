@@ -1,51 +1,29 @@
 from fastapi import APIRouter, Depends, HTTPException, Response, status
-from sqlalchemy.ext.asyncio import AsyncSession
 from typing import List
 from pydantic import BaseModel
-from ...database.session import get_db
+from fastapi.responses import StreamingResponse
+
 from ...views.conversation import (
-    ConversationCreate, 
-    ConversationResponse, 
+    ConversationCreate,
+    ConversationResponse,
     ConversationPreviewResponse,
     ConversationUpdate
 )
 from ...views.message import MessageCreate, MessageResponse
 from ...services.conversation_service import ConversationService
-from ...repositories.conversation_repository import ConversationRepository
-from ...repositories.message_repository import MessageRepository
-from ...models.message import Message
 from ...services.orchestrator_service import OrchestratorService
-from ...services.openai_chat_service import OpenAIChatService
-from fastapi.responses import StreamingResponse
-import asyncio
-import json
+from ...repositories.message_repository import MessageRepository
+from ...core.dependencies import get_conversation_service, get_orchestrator_service, get_message_repository
+
 
 router = APIRouter()
-
-# Pydantic models for the new endpoint
-class QueryRequest(BaseModel):
-    query: str
-
-class QueryResponse(BaseModel):
-    answer: str
-
-def get_conversation_service(db: AsyncSession = Depends(get_db)) -> ConversationService:
-    conversation_repo = ConversationRepository(db)
-    message_repo = MessageRepository(db)
-    return ConversationService(conversation_repo, message_repo)
-
-def get_orchestrator_service(
-    conversation_service: ConversationService = Depends(get_conversation_service),
-) -> OrchestratorService:
-    chat_service = OpenAIChatService()
-    return OrchestratorService(conversation_service, chat_service)
 
 @router.get("/", response_model=List[ConversationPreviewResponse])
 async def get_user_conversations(
     service: ConversationService = Depends(get_conversation_service)
 ):
     # In a real app, user_id would come from an auth system.
-    user_id = 1 
+    user_id = 1
     return await service.get_user_conversations(user_id=user_id)
 
 @router.post("/", response_model=ConversationResponse)
@@ -106,13 +84,14 @@ async def stream_conversation(
     conversation_id: int,
     message: MessageCreate,
     orchestrator: OrchestratorService = Depends(get_orchestrator_service),
+    message_repo: MessageRepository = Depends(get_message_repository),
 ):
     """
     Handles a user's message in a conversation, saves it, and streams back
     a response using the new agentic orchestrator.
     """
     # 1. Save user message
-    user_message = await orchestrator.conversation_service.message_repo.create(
+    user_message = await message_repo.create(
         content=message.content, role=message.role, conversation_id=conversation_id
     )
 

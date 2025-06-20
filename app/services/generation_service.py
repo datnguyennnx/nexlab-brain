@@ -1,11 +1,11 @@
 import os
 from openai import AsyncOpenAI
 from typing import List, Dict, AsyncGenerator
-from loguru import logger
 import json
-from langfuse import observe
 
+from ..core.langfuse_client import langfuse
 from ..core.config import settings
+from ..utils.stream import stream_sse_from_openai
 
 # Initialize the async client, reading the API key from environment variables
 client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
@@ -67,7 +67,6 @@ class GenerationService:
         """
         return prompt
 
-    @observe(as_type="generation")
     async def generate_response(self, user_query: str, context_docs: List[Dict], **kwargs) -> str:
         """
         Generates a response using the LLM with the user query and retrieved context.
@@ -77,23 +76,30 @@ class GenerationService:
 
         prompt = self._build_prompt(user_query, context_docs)
 
-        try:
-            response = await client.chat.completions.create(
-                model=self.model,
-                messages=[
-                    {"role": "system", "content": "You are a helpful assistant fluent in Vietnamese."},
-                    {"role": "user", "content": prompt}
-                ],
-                temperature=0.1,
-                max_tokens=3000,
-                **kwargs,
-            )
-            return response.choices[0].message.content
-        except Exception as e:
-            logger.error(f"Error calling OpenAI API: {e}")
-            return "Đã có lỗi xảy ra khi tạo câu trả lời. Vui lòng thử lại sau."
+        with langfuse.start_as_current_generation(
+            name="generate-rag-response",
+            input={"user_query": user_query, "context": context_docs},
+            model=self.model,
+            metadata=kwargs
+        ) as generation:
+            try:
+                response = await client.chat.completions.create(
+                    model=self.model,
+                    messages=[
+                        {"role": "system", "content": "You are a helpful assistant fluent in Vietnamese."},
+                        {"role": "user", "content": prompt}
+                    ],
+                    temperature=0.1,
+                    max_tokens=3000,
+                    **kwargs,
+                )
+                output = response.choices[0].message.content
+                generation.update(output=output)
+                return output
+            except Exception as e:
+                generation.update(level="ERROR", status_message=str(e))
+                return "Đã có lỗi xảy ra khi tạo câu trả lời. Vui lòng thử lại sau."
 
-    @observe(as_type="generation")
     async def stream_generate_response(self, user_query: str, context_docs: List[Dict], history: List[Dict[str, str]] = None, **kwargs) -> AsyncGenerator[str, None]:
         """
         Generates and streams a response using the LLM with context and history.
@@ -105,36 +111,42 @@ class GenerationService:
 
         prompt = self._build_prompt(user_query, context_docs, history)
         
-        try:
-            stream = await client.chat.completions.create(
-                model=self.model,
-                messages=[
-                    {"role": "system", "content": "You are a helpful assistant fluent in Vietnamese."},
-                    {"role": "user", "content": prompt}
-                ],
-                temperature=0.3,
-                max_tokens=1500,
-                stream=True,
-                **kwargs,
-            )
-            
-            first_chunk = True
-            message_id = None
-            async for chunk in stream:
-                if first_chunk:
-                    message_id = chunk.id
-                    yield f"data: {json.dumps({'type': 'assistant_message_start', 'data': {'id': message_id}})}\n\n"
-                    first_chunk = False
+        messages = [
+            {"role": "system", "content": "You are a helpful assistant fluent in Vietnamese."},
+            {"role": "user", "content": prompt}
+        ]
+        
+        with langfuse.start_as_current_generation(
+            name="stream-generate-rag-response",
+            input={"user_query": user_query, "context": context_docs, "history": history},
+            model=self.model,
+            metadata=kwargs
+        ) as generation:
+            final_content = ""
+            try:
+                async for chunk in stream_sse_from_openai(
+                    client,
+                    self.model,
+                    messages,
+                    temperature=0.3,
+                    max_tokens=1500,
+                    **kwargs,
+                ):
+                    yield chunk
+                    if chunk.strip().startswith('data:'):
+                            try:
+                                data_str = chunk.strip()[5:]
+                                event_data = json.loads(data_str)
+                                if event_data.get('type') == 'content_chunk':
+                                    final_content += event_data.get('data', {}).get('content', '')
+                            except json.JSONDecodeError:
+                                pass
+                generation.update(output=final_content)
+            except Exception as e:
+                generation.update(level="ERROR", status_message=str(e))
+                # Optionally re-raise or handle the exception
+                raise
 
-                if chunk.choices and chunk.choices[0].delta and chunk.choices[0].delta.content:
-                    content_chunk = chunk.choices[0].delta.content
-                    yield f"data: {json.dumps({'type': 'content_chunk', 'data': {'message_id': message_id, 'content': content_chunk}})}\n\n"
-
-        except Exception as e:
-            logger.error(f"Error streaming from OpenAI: {e}")
-            yield f"data: {json.dumps({'type': 'error', 'data': {'error': str(e)}})}\n\n"
-        finally:
-            yield f"data: {json.dumps({'type': 'stream_end', 'data': {}})}\n\n"
 
 # Singleton instance
 generation_service = GenerationService() 

@@ -30,25 +30,26 @@ class InterceptHandler(logging.Handler):
 def setup_logging():
     # Intercept everything at the root logger
     logging.basicConfig(handlers=[InterceptHandler()], level=0, force=True)
-    # Configure Loguru
-    logger.configure(handlers=[{"sink": sys.stdout, "serialize": False}])
+    # Configure Loguru to only show INFO and above
+    logger.configure(handlers=[{"sink": sys.stdout, "serialize": False, "level": "INFO"}])
+    # Set higher logging levels for noisy libraries to suppress their DEBUG messages
+    logging.getLogger("openai").setLevel(logging.WARNING)
+    logging.getLogger("httpcore").setLevel(logging.WARNING)
+    logging.getLogger("httpx").setLevel(logging.WARNING)
+    logging.getLogger("urllib3").setLevel(logging.WARNING)
+    logging.getLogger("langfuse").setLevel(logging.WARNING)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     setup_logging()
-    logger.info("Starting up...")
     # On startup
     async with AsyncSessionLocal() as session:
         user_repo = UserRepository(session)
         user = await user_repo.get_by_id(1)
         if not user:
-            logger.info("Default user not found, creating one.")
             await user_repo.create(id=1)
-        else:
-            logger.info("Default user found.")
     yield
     # On shutdown
-    logger.info("Shutting down...")
     langfuse.flush()
 
 app = FastAPI(title="Nexlab Brain API", lifespan=lifespan)
