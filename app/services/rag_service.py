@@ -2,6 +2,7 @@ from typing import List, AsyncGenerator, Dict
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import text
 import json
+import uuid
 
 from ..repositories.message_repository import MessageRepository
 from ..models.message import MessageRole
@@ -26,7 +27,7 @@ class RAGService:
 
             # 2. Vector Search
             vector_stmt = text("""
-                SELECT content, (1 - (embedding <=> :query_embedding)) as score
+                SELECT id, content, filename, (1 - (embedding <=> :query_embedding)) as score
                 FROM document_store
                 ORDER BY score DESC
                 LIMIT 10
@@ -39,7 +40,7 @@ class RAGService:
 
             # 3. Full-Text Search
             fts_stmt = text("""
-                SELECT content, ts_rank(content_tsv, websearch_to_tsquery('simple', :query)) AS score
+                SELECT id, content, filename, ts_rank(content_tsv, websearch_to_tsquery('simple', :query)) AS score
                 FROM document_store
                 WHERE content_tsv @@ websearch_to_tsquery('simple', :query)
                 ORDER BY score DESC
@@ -48,32 +49,32 @@ class RAGService:
             fts_result = await self.db.execute(fts_stmt, {"query": query})
             fts_docs = [dict(doc) for doc in fts_result.mappings().all()]
 
-            # 4. Reciprocal Rank Fusion (RRF)
+            # 4. Reciprocal Rank Fusion (RRF) using document IDs for accuracy
             rrf_scores = {}
             all_docs = {}
 
             # Process vector search results
             for rank, doc in enumerate(vector_docs):
-                content = doc['content']
-                if content not in rrf_scores:
-                    rrf_scores[content] = 0
-                    all_docs[content] = doc
-                rrf_scores[content] += 1 / (k_val + rank)
+                doc_id = doc['id']
+                if doc_id not in rrf_scores:
+                    rrf_scores[doc_id] = 0
+                    all_docs[doc_id] = doc
+                rrf_scores[doc_id] += 1 / (k_val + rank)
 
             # Process FTS results
             for rank, doc in enumerate(fts_docs):
-                content = doc['content']
-                if content not in rrf_scores:
-                    rrf_scores[content] = 0
-                    all_docs[content] = doc
-                rrf_scores[content] += 1 / (k_val + rank)
+                doc_id = doc['id']
+                if doc_id not in rrf_scores:
+                    rrf_scores[doc_id] = 0
+                    all_docs[doc_id] = doc
+                rrf_scores[doc_id] += 1 / (k_val + rank)
 
             # Sort by RRF score
-            sorted_content = sorted(
+            sorted_ids = sorted(
                 rrf_scores.keys(), key=lambda x: rrf_scores[x], reverse=True)
 
             # Get the final documents in the new sorted order
-            final_docs = [all_docs[content] for content in sorted_content][:top_k]
+            final_docs = [all_docs[doc_id] for doc_id in sorted_ids][:top_k]
 
             # Create a meaningful trace output for LLMOps
             trace_output = {
@@ -95,6 +96,22 @@ class RAGService:
         with langfuse.start_as_current_span(name="rag-pipeline", input={"user_query": user_query, "history": history}) as span:
             # Perform hybrid search with RRF
             retrieved_docs = await self._hybrid_search(user_query)
+
+            # Send retrieved documents to the client as a separate event
+            if retrieved_docs:
+                docs_for_client = [
+                    {
+                        "id": str(doc.get("id")),
+                        "filename": doc.get("filename"),
+                        "content": doc.get("content"),
+                    }
+                    for doc in retrieved_docs
+                ]
+                event_data = {
+                    "type": "retrieved_documents",
+                    "data": {"documents": docs_for_client},
+                }
+                yield f"data: {json.dumps(event_data)}\n\n"
 
             # Stream the response from the generation service
             final_content = ""
