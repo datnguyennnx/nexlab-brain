@@ -2,6 +2,7 @@ from typing import List, Optional, AsyncGenerator, Dict
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import text
 from loguru import logger
+from langfuse import observe
 
 from ..models.conversation import Conversation
 from ..repositories.conversation_repository import ConversationRepository
@@ -9,6 +10,7 @@ from ..repositories.message_repository import MessageRepository
 from ..models.message import MessageRole
 from .embedding_service import embedding_service
 from .generation_service import generation_service
+from ..core.langfuse_client import langfuse
 import json
 
 class ConversationService:
@@ -19,6 +21,7 @@ class ConversationService:
         self.message_repo = message_repo
         self.memory_window_size = 10 # Keep the last 10 messages for context
     
+    @observe(name="hybrid-search-retrieval")
     async def _hybrid_search(self, query: str, db: AsyncSession, top_k: int = 5, k_val: int = 60) -> List[Dict]:
         """
         Performs hybrid search combining vector and full-text search using Reciprocal Rank Fusion (RRF).
@@ -74,10 +77,14 @@ class ConversationService:
         sorted_content = sorted(rrf_scores.keys(), key=lambda x: rrf_scores[x], reverse=True)
         
         # Get the final documents in the new sorted order
-        final_docs = [all_docs[content] for content in sorted_content]
-        
-        return final_docs[:top_k]
+        final_docs = [all_docs[content] for content in sorted_content][:top_k]
 
+        # Log retrieved documents as the output of this observation
+        langfuse.update_current_span(output=final_docs)
+        
+        return final_docs
+
+    @observe(name="rag-pipeline")
     async def stream_rag_response(self, conversation_id: int) -> AsyncGenerator[str, None]:
         """
         Orchestrates the full RAG streaming pipeline.
@@ -104,6 +111,8 @@ class ConversationService:
         # Stream the response from the generation service
         final_content = ""
         try:
+            # The underlying LLM call is already traced by the OpenAI integration.
+            # This observation serves as a logical grouping for the RAG response generation.
             async for chunk in generation_service.stream_generate_response(user_query, retrieved_docs, conversation_history):
                 yield chunk
                 # Accumulate content to save at the end

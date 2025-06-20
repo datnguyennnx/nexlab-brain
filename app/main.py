@@ -8,6 +8,7 @@ import sys
 from .controllers.v1.router import api_router
 from .database.session import AsyncSessionLocal
 from .repositories.user_repository import UserRepository
+from .core.langfuse_client import langfuse
 
 # --- Loguru Intercept Handler ---
 class InterceptHandler(logging.Handler):
@@ -48,6 +49,7 @@ async def lifespan(app: FastAPI):
     yield
     # On shutdown
     logger.info("Shutting down...")
+    langfuse.flush()
 
 app = FastAPI(title="Nexlab Brain API", lifespan=lifespan)
 

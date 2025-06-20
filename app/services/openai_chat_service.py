@@ -2,6 +2,7 @@ import json
 from typing import AsyncGenerator, List, Dict
 from openai import AsyncOpenAI
 from loguru import logger
+from langfuse import observe
 from ..core.config import settings
 
 class OpenAIChatService:
@@ -9,12 +10,14 @@ class OpenAIChatService:
         self.client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
         self.model = model
 
-    async def stream_chat_completion(self, messages: List[Dict[str, str]]) -> AsyncGenerator[str, None]:
+    @observe(as_type="generation")
+    async def stream_chat_completion(self, messages: List[Dict[str, str]], **kwargs) -> AsyncGenerator[str, None]:
         try:
             stream = await self.client.chat.completions.create(
                 model=self.model,
                 messages=messages,
                 stream=True,
+                **kwargs,
             )
             
             first_chunk = True

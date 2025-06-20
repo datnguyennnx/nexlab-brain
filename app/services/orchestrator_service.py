@@ -1,10 +1,12 @@
 import json
 from typing import AsyncGenerator, List, Dict
 from loguru import logger
+from langfuse import observe
 
 from ..services.conversation_service import ConversationService
 from ..services.openai_chat_service import OpenAIChatService
 from ..models.message import Message, MessageRole
+from ..core.langfuse_client import langfuse
 
 
 class OrchestratorService:
@@ -18,6 +20,7 @@ class OrchestratorService:
         self.routing_model = "gpt-4o-mini" # Use a fast model for routing
         self.memory_window_size = 10 # Keep the last 10 messages for context
 
+    @observe()
     async def _get_routing_decision(self, user_query: str, history: List[Dict[str, str]]) -> str:
         """
         Uses an LLM to decide whether to use the RAG pipeline or a simple chat response.
@@ -25,12 +28,17 @@ class OrchestratorService:
         history_str = "\n".join([f"{msg['role']}: {msg['content']}" for msg in history])
 
         prompt = f"""
-        Given the conversation history and the user's latest query, please classify the query into one of two categories:
-        1. "rag_query": The user is asking a question that requires specific knowledge from a document base. Examples: "dịch vụ tắm trắng giá bao nhiêu?", "làm thế nào để đặt lịch hẹn?", "cơ sở ở đâu?".
-        2. "chat_query": The user is making a general conversational statement. Examples: "xin chào", "cảm ơn bạn", "bạn là ai?", or follow-up comments on the assistant's previous answer that don't ask for new information.
+        You are an expert linguistic analyst for a customer service chatbot at Diva Beauty Salon (Viện thẩm mỹ Diva).
+        Your task is to analyze the user's query in Vietnamese and classify it into one of two categories: `rag_query` or `chat_query`.
 
-        Return ONLY "rag_query" or "chat_query" as the answer.
+        Follow these steps to determine the classification:
+        1.  **Analyze Query**: What is the core intent of the user's latest message? Are they asking for specific facts (price, location, how-to) or engaging in conversation?
+        2.  **Evaluate against Categories**:
+            - `rag_query`: The user needs specific, factual information that must be looked up in the knowledge base. Examples: "giá dịch vụ X là bao nhiêu?", "địa chỉ chi nhánh Y?", "hướng dẫn đặt lịch hẹn".
+            - `chat_query`: The user is having a general conversation. Examples: "xin chào", "cảm ơn bạn", "bạn là ai vậy?".
+        3.  **Conclusion**: Based on your analysis, provide ONLY the final classification (`rag_query` or `chat_query`) and nothing else.
 
+        ---
         Conversation History:
         {history_str}
 
@@ -41,7 +49,7 @@ class OrchestratorService:
         """
         
         try:
-            # We need a non-streaming call here to get the decision before proceeding
+            # The OpenAI call is automatically traced. This observation provides a logical wrapper.
             response = await self.chat_service.client.chat.completions.create(
                 model=self.routing_model,
                 messages=[
@@ -51,21 +59,34 @@ class OrchestratorService:
                 max_tokens=10,
             )
             decision = response.choices[0].message.content.strip()
+            
+            # Update the current Langfuse observation with the output and metadata
+            langfuse.update_current_span(output=decision, metadata={"prompt": prompt})
+
             logger.info(f"Routing decision: '{decision}' for query: '{user_query}'")
             if decision not in ["rag_query", "chat_query"]:
                 logger.warning("Router returned an invalid decision. Defaulting to RAG.")
                 return "rag_query"
             return decision
         except Exception as e:
+            # Log errors to Langfuse
+            langfuse.update_current_span(level="ERROR", status_message=str(e))
             logger.error(f"Error getting routing decision: {e}. Defaulting to RAG.")
             return "rag_query"
 
+    @observe(name="request-orchestration")
     async def stream_response(
         self, conversation_id: int, user_message: Message
     ) -> AsyncGenerator[str, None]:
         """
         Orchestrates the response generation by routing between RAG and simple chat.
         """
+        # Add user and session info to the trace for better filtering in Langfuse
+        langfuse.update_current_trace(
+            user_id="nexlab_user_test",
+            session_id=str(conversation_id)
+        )
+
         history = await self.conversation_service.message_repo.get_by_conversation_id(
             conversation_id
         )
