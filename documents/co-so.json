@@ -1,0 +1,765 @@
+[
+  {
+    "name": "Viện thẩm mỹ Diva Phước Bửu",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-phuoc-buu/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Nam",
+    "address": "Số 21 Võ Thị Sáu, TT. Phước Bửu, H. Xuyên Mộc, T. Bà Rịa – Vũng Tàu.",
+    "description": "Chi nhánh Diva Spa tại Phước Bửu chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Hòn Đất",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-hon-dat/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "0724 – 0726 tổ 6, Khu Phố Đường Hòn, Thị Trấn Hòn Đất, Huyện Hòn Đất, Tỉnh Kiên Giang.",
+    "description": "Chi nhánh Diva Spa tại Hòn Đất mang đến các liệu trình thẩm mỹ chất lượng cho khách hàng địa phương."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Phú Hà Phan Rang",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-phu-ha-phan-rang/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Trung",
+    "address": "Số 336 Thống Nhất, P. Phủ Hà, TP. Phan Rang – Tháp Chàm, T. Ninh Thuận,",
+    "description": "Chi nhánh Diva Spa tại Phú Hà Phan Rang chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Tân Phước Khánh",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-tan-phuoc-khanh/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Nam",
+    "address": "Số 37 KP. Khánh Hoà, P. Tân Phước Khánh, TP. Tân Uyên, T. Bình Dương.",
+    "description": "Chi nhánh Diva Spa tại Tân Phước Khánh chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Thống Nhất",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-thong-nhat/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Nam",
+    "address": "Số A1/16, Ấp Bắc Sơn, Xã Quang Trung, Huyện Thống Nhất, Tỉnh Đồng Nai.",
+    "description": "Chi nhánh Diva Spa tại Thống Nhất chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Tân Bình",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-tan-binh/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Nam",
+    "address": "Số 94A – 96 Trương Công Định, Phường 14, Quận Tân Bình, Thành phố Hồ Chí Minh",
+    "description": "Chi nhánh Diva Spa tại Tân Bình chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Bình Long",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-binh-long/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Nam",
+    "address": "Số 86 – 88 – 90 Nguyễn Huệ, khu Phố Phú Nghĩa, Phường Phú Đức, Thị Xã Bình Long, Tỉnh Bình Phước.",
+    "description": "Chi nhánh Diva Spa tại Bình Long chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Phú Giáo",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-phu-giao/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Nam",
+    "address": "số nhà 590 Đường DT 741, Khu phố 2, TT. Phước Vĩnh, Huyện Phú Giáo, Tỉnh Bình Dương",
+    "description": "Chi nhánh Diva Spa tại Phú Giáo chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Mỹ Long",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-my-long/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": " số 229-231 Lý Thái Tổ, Mỹ Long, Thành phố Long Xuyên, An Giang",
+    "description": "Chi nhánh Diva Spa tại Mỹ Long chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Quảng Trị",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-quang-tri/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Trung",
+    "address": "Số 306 Trần Hưng Đạo, Phường 2, Thị xã Quảng Trị, Tỉnh Quảng Trị",
+    "description": "Chi nhánh Diva Spa tại Quảng Trị chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Nhơn Trạch",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-nhon-trach/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Nam",
+    "address": "Số 209, đường Lý Thái Tổ, ấp Bến Cam, Xã Phước Thiền, Huyện Nhơn Trạch, Tỉnh Đồng Nai",
+    "description": "Chi nhánh Diva Spa tại Nhơn Trạch chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Phước Long",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-phuoc-long/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Nam",
+    "address": "Số 47 Khu 2, Phường Phước Bình, Thị xã Phước Long, Tỉnh Bình Phước.",
+    "description": "Chi nhánh Diva Spa tại Phước Long chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Cần Giuộc Long An",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-can-giuoc-long-an/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Nam",
+    "address": "Số 151 quốc lộ 50, Tổ 7, Thị trấn Cần Giuộc, Huyện Cần Giuộc, Tỉnh Long An.",
+    "description": "Chi nhánh Diva Spa tại Cần Giuộc Long An chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Gò Vấp",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-go-vap/",
+    "latest_update": "2023-03-14",
+    "region": "Miền Nam",
+    "address": "",
+    "description": "Chi nhánh Diva Spa tại Gò Vấp cung cấp các dịch vụ thẩm mỹ và chăm sóc da chuyên nghiệp."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Lấp Vò",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-lap-vo/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "163 đường 3/2, xã Bình Thạnh 1, thị trấn Lấp Vò, huyện Lấp Vò, tỉnh Đồng Tháp",
+    "description": "Chi nhánh Diva Spa tại Lấp Vò chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Phú Quốc",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-phu-quoc/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "Số 223 đường 30/04, TT. Dương Đông, TP. Phú Quốc, T. Kiên Giang.",
+    "description": "Chi nhánh Diva Spa tại Phú Quốc chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Mỹ An",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-my-an/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "Số 269 Hùng Vương, TT. Mỹ An, H. Tháp Mười, T. Đồng Tháp.",
+    "description": "Chi nhánh Diva Spa tại Mỹ An chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Cái Tắc",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-cai-tac/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": " 85 Quốc Lộ 61, Ấp Tân Phú A, Thị trấn Cái Tắc, Huyện Châu Thành A, Tỉnh Hậu Giang.",
+    "description": "Chi nhánh Diva Spa tại Cái Tắc chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Thới Lai",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-thoi-lai/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "1A-2 Chợ Thới Lai, Ấp Thới Thuận A, Thị trấn Thới Lai, Huyện Thới Lai, TP. Cần Thơ.",
+    "description": "Chi nhánh Diva Spa tại Thới Lai chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Ba Tri",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-ba-tri/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "09 Nguyễn Đình Chiểu, Thị Trấn Ba Tri, Huyện Ba Tri, Tỉnh Bến Tre.",
+    "description": "Chi nhánh Diva Spa tại Ba Tri chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Cái Bè Tiền Giang",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-cai-be-tien-giang/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "Số 336L Thiên Hộ Dương , Khu 2, Thị trấn Cái Bè, Huyện Cái Bè, Tỉnh Tiền Giang.",
+    "description": "Chi nhánh Diva Spa tại Cái Bè Tiền Giang chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Lâm Hà Lâm Đồng",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-lam-ha-lam-dong/",
+    "latest_update": "2025-05-21",
+    "region": "Tây Nguyên",
+    "address": " Số 909 Đường Hùng Vương, Thị trấn Đinh Văn, Huyện Lâm Hà, Tỉnh Lâm Đồng.",
+    "description": "Chi nhánh Diva Spa tại Lâm Hà Lâm Đồng chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Đức Hòa Long An",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-duc-hoa-long-an/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Nam",
+    "address": "Số 281C KP 3, TT. Đức Hoà, H. Đức Hoà, T. Long An",
+    "description": "Chi nhánh Diva Spa tại Đức Hòa Long An chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Mỹ Luông An Giang",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-my-luong-an-giang/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": " Số 169 Đường Châu Văn Liêm, Ấp thị 2, Tổ 21, TT. Mỹ Luông, H. Chợ Mới, T. An Giang.",
+    "description": "Chi nhánh Diva Spa tại Mỹ Luông An Giang chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Vũng Liêm Vĩnh Long",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-vung-liem-vinh-long/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "Đường Nam Kỳ Khởi Nghĩa, Khóm 2, Thị trấn Vũng Liêm, Huyện Vũng Liêm, Tỉnh Vĩnh Long.",
+    "description": "Chi nhánh Diva Spa tại Vũng Liêm Vĩnh Long chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Mỹ Xuyên Sóc Trăng",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-my-xuyen-soc-trang/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "Số 147 Lê Lợi, TT. Mỹ Xuyên, H. Mỹ Xuyên, T. Sóc Trăng. ",
+    "description": "Chi nhánh Diva Spa tại Mỹ Xuyên Sóc Trăng chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Giá Rai Bạc Liêu",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-gia-rai-bac-lieu/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "Số 256 khóm 2, Phường Hộ Phòng, Thị xã Giá Rai, Bạc Liêu. ",
+    "description": "Chi nhánh Diva Spa tại Giá Rai Bạc Liêu chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Tân Châu An Giang",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-tan-chau-an-giang/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "Số 52 đường Ngô Quyền, Khóm Long Thạnh A, Phường Long Thạnh, Thị xã Tân Châu, An Giang.",
+    "description": "Chi nhánh Diva Spa tại Tân Châu An Giang chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Ô Môn Cần Thơ",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-o-mon-can-tho/",
+    "latest_update": "2025-05-21",
+    "địa_chỉ": "Ô Môn, Cần Thơ",
+    "region": "Miền Tây",
+    "address": "Số 126 Đường 26/3, Khu vực 3 Phường Châu Văn Liêm, Quận Ô Môn, Thành phố Cần Thơ.",
+    "description": "Chi nhánh Diva Spa tại Ô Môn Cần Thơ chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Lai Vung",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-lai-vung/",
+    "latest_update": "2025-05-21",
+    "địa_chỉ": "Lai Vung, Đồng Tháp",
+    "region": "Miền Tây",
+    "address": "496C Khóm 1, TT. Lai Vung, H. Lai Vung, T. Đồng Tháp.",
+    "description": "Chi nhánh Diva Spa tại Lai Vung chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva An Châu An Giang",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-an-chau-an-giang/",
+    "latest_update": "2025-05-21",
+    "địa_chỉ": "An Châu, An Giang",
+    "region": "Miền Tây",
+    "address": "Số 16, Ấp Hoà Long 1, Thị trấn An Châu, Huyện Châu Thành, Tỉnh An Giang.",
+    "description": "Chi nhánh Diva Spa tại An Châu An Giang chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Cần Đước",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-can-duoc/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Nam",
+    "address": "",
+    "description": "Chi nhánh Diva Spa tại Cần Đước chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Ngãi Giao",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-ngai-giao/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Nam",
+    "address": "số nhà 251 đường Lê Hồng Phong, Thị trấn Ngãi Giao, huyện Châu Đức, tỉnh Bà Rịa – Vũng Tàu ",
+    "description": "Chi nhánh Diva Spa tại Ngãi Giao chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Mỏ Cày Bến Tre",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-mo-cay-ben-tre/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "Số 73 Đường Nguyễn Đình Chiểu, Khu phố 1, Thị trấn Mỏ Cày, Huyện Mỏ Cày Nam, Tỉnh Bến Tre.",
+    "description": "Chi nhánh Diva Spa tại Mỏ Cày Bến Tre chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Cờ Đỏ Cần Thơ",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-co-do-can-tho/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "Đường Hà Huy Giáp, Ấp Thới Thuận, Thị trấn Cờ Đỏ, Huyện Cờ Đỏ, Thành phố Cần Thơ.",
+    "description": "Chi nhánh Diva Spa tại Cờ Đỏ Cần Thơ chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Tân Trụ Long An",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-tan-tru-long-an/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Nam",
+    "address": "Số 06 Nguyễn Trung Trực, Thị trấn Tân Trụ, Huyện Tân Trụ, Tỉnh Long An.",
+    "description": "Chi nhánh Diva Spa tại Tân Trụ Long An chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Rạch Kiến Long An",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-rach-kien-long-an/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Nam",
+    "address": "Số 727 Ấp 5, Xã Long Hoà, Huyện Cần Đước (Rạch Kiến), Tỉnh Long An. ",
+    "description": "Chi nhánh Diva Spa tại Rạch Kiến Long An chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva La Gi",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-lagi/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Trung",
+    "address": "167B Lê Lợi, Thị xã La Gi, Tỉnh Bình Thuận.",
+    "description": "Chi nhánh Diva Spa tại La Gi chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Quận 10",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-quan-10/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Nam",
+    "address": "22 đường 3/2, quận 10, Thành phố Hồ Chí Minh.",
+    "description": "Chi nhánh Diva Spa tại Quận 10 chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Đức Trọng 2",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-duc-trong-2/",
+    "latest_update": "2025-05-21",
+    "region": "Tây Nguyên",
+    "address": "Số 53 đường Dân Sinh, Vòng xoay Liên Khương, Liên Nghĩa, Đức Trọng, Lâm Đồng",
+    "description": "Chi nhánh Diva Spa tại Đức Trọng 2 chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Trảng Bom Đồng Nai",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-trang-bom-dong-nai/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Nam",
+    "address": " số 83 đường 3/2, KP.5, TT. Trảng Bom, T. Đồng Nai.",
+    "description": "Chi nhánh Diva Spa tại Trảng Bom Đồng Nai chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Di Linh Lâm Đồng",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-di-linh-lam-dong/",
+    "latest_update": "2025-05-21",
+    "region": "Tây Nguyên",
+    "address": "Số 1044A đường Hùng Vương, thị trấn Di Linh, huyện Di Linh, Tỉnh Lâm Đồng.",
+    "description": "Chi nhánh Diva Spa tại Di Linh Lâm Đồng chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Ngã Năm",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-nga-nam/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "Số 76 Nguyễn Huệ, Khóm 1, P.1, TX. Ngã Năm, T. Sóc Trăng.",
+    "description": "Chi nhánh Diva Spa tại Ngã Năm chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Tri Tôn",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-tri-ton/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "Số 92 Trần Hưng Đạo, Khóm 6, TT. Tri Tôn, T. An Giang.",
+    "description": "Chi nhánh Diva Spa tại Tri Tôn chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Bạc Liêu Cơ Sở 2",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-bac-lieu-co-so-2/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "Căn PG3-02 – PG3-04 Khu nhà phố Vincom, Đường Trần Huỳnh, Phường 7, Thành phố Bạc Liêu, Tỉnh Bạc Liêu.",
+    "description": "Chi nhánh Diva Spa tại Bạc Liêu Cơ Sở 2 chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Nha Trang",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-nha-trang/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Trung",
+    "address": "Số 83, Đường Yersin, Phường Phương Sài, Thành phố Nha Trang, Tỉnh Khánh Hòa.",
+    "description": "Chi nhánh Diva Spa tại Nha Trang chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Hà Tiên",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-ha-tien/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "Số 105, Phạm Văn Kỷ, P. Pháo Đài, TP. Hà Tiên, T. Kiên Giang.",
+    "description": "Chi nhánh Diva Spa tại Hà Tiên chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Đắk Nông",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-dak-nong/",
+    "latest_update": "2025-05-21",
+    "region": "Tây Nguyên",
+    "address": "Số 08 Lý Thường Kiệt, Phường Nghĩa Thành, Thị xã Gia Nghĩa, Tỉnh Đắk Nông.",
+    "description": "Chi nhánh Diva Spa tại Đắk Nông chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Trảng Bàng",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-trang-bang/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Nam",
+    "address": "Số A20, Khu phố Lộc An, Phường Trảng Bàng, Thị xã Trảng Bàng, Tỉnh Tây Ninh.",
+    "description": "Chi nhánh Diva Spa tại Trảng Bàng chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Vĩnh Châu",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-vinh-chau/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": " Số 19 Trưng Nhị, Khóm 3, Phường 1, Thị xã Vĩnh Châu, Tỉnh Sóc Trăng",
+    "description": "Chi nhánh Diva Spa tại Vĩnh Châu chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Thốt Nốt",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-thot-not/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "Số 313B Quốc lộ 91, thị trấn Thốt Nốt, quận Thốt Nốt, thành phố Cần Thơ.",
+    "description": "Chi nhánh Diva Spa tại Thốt Nốt chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Phan Rang",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-phan-rang/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Trung",
+    "address": "Số 336 Thống Nhất, P. Phủ Hà, TP. Phan Rang – Tháp Chàm, T. Ninh Thuận",
+    "description": "Chi nhánh Diva Spa tại Phan Rang chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Thuận An",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-thuan-an/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Nam",
+    "address": "378 Nguyễn Văn Tiết, Phường Lái Thiêu, Thuận An, Bình Dương.",
+    "description": "Chi nhánh Diva Spa tại Thuận An chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Đức Trọng",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-duc-trong/",
+    "latest_update": "2025-05-21",
+    "region": "Tây Nguyên",
+    "address": "Số 414 QL 20, Liên Nghĩa, Đức Trọng, Lâm Đồng.",
+    "description": "Chi nhánh Diva Spa tại Đức Trọng chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Hồng Ngự",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-hong-ngu/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "84 Lê Lợi, Phường An Thạnh, Thành Phố Hồng Ngự, Tỉnh Đồng Tháp",
+    "description": "Chi nhánh Diva Spa tại Hồng Ngự chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Ngã Bảy",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-nga-bay/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "Số 12 Nguyễn Thị Minh Khai, Khu vực 3, TP. Ngã Bảy, T. Hậu Giang",
+    "description": "Chi nhánh Diva Spa tại Ngã Bảy chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Hội An",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-hoi-an/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Trung",
+    "address": "Số 568 đường Hai Bà Trưng, Phường Cẩm Phô, Thành phố Hội An, Tỉnh Quảng Nam.",
+    "description": "Chi nhánh Diva Spa tại Hội An chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Tam Kỳ",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-tam-ky/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Trung",
+    "address": "Số 556 đường Phan Chu Trinh, Thành phố Tam Kỳ, Quảng Nam",
+    "description": "Chi nhánh Diva Spa tại Tam Kỳ chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Hóc Môn",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-hoc-mon/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Nam",
+    "address": "Số 9 Lý Thường Kiệt, Thị Trấn Hóc Môn, Huyện Hóc Môn, TP. Hồ Chí Minh.",
+    "description": "Chi nhánh Diva Spa tại Hóc Môn chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Long Khánh",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-long-khanh/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Nam",
+    "address": "Số 3 Nguyễn Trãi, P. Xuân Hòa, TP. Long Khánh, T. Đồng Nai",
+    "description": "Chi nhánh Diva Spa tại Long Khánh chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Dĩ An",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-di-an/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Nam",
+    "address": "Số 104 Nguyễn An Ninh, Phường Dĩ An, Thành phố Dĩ An , Tỉnh Bình Dương",
+    "description": "Chi nhánh Diva Spa tại Dĩ An chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Bà Rịa Vũng Tàu",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-ba-ria-vung-tau/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Nam",
+    "address": "Số 231 đường Cách Mạng Tháng 8, Khu phố 5, Phường Phước Hiệp, Thành phố Bà Rịa, Tỉnh Bà Rịa.",
+    "description": "Chi nhánh Diva Spa tại Bà Rịa Vũng Tàu chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Nghệ An",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-nghe-an/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Trung",
+    "address": "",
+    "description": "Chi nhánh Diva Spa tại Nghệ An chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Bến Lức",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-ben-luc/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Nam",
+    "address": "SỐ 174 – 176 NGUYỄN HỮU THỌ, KHU PHỐ 2, TT. BẾN LỨC, H. BẾN LỨC, T. LONG AN.",
+    "description": "Chi nhánh Diva Spa tại Bến Lức chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Thủ Dầu Một",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-thu-dau-mot/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Nam",
+    "address": "Số 145 – 147 Phú Lợi, P. Phú Lợi, TP. Thủ Dầu Một, T. Bình Dương",
+    "description": "Chi nhánh Diva Spa tại Thủ Dầu Một chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Quy Nhơn",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-quy-nhon/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Trung",
+    "address": "Số 296 Phan Bội Châu, Phường Lê Hồng Phong, Thành phố Quy Nhơn, Tỉnh Bình Định.",
+    "description": "Chi nhánh Diva Spa tại Quy Nhơn chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Cao Lãnh",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-cao-lanh/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "",
+    "description": "Chi nhánh Diva Spa tại Cao Lãnh chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Rạch Giá",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-rach-gia/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "Căn PG1-01, PG1-02 Khu nhà phố Vincom, Đường Cô Bắc , P. Vĩnh Bảo, TP. Rạch Giá, T. Kiên Giang,",
+    "description": "Chi nhánh Diva Spa tại Rạch Giá chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Long Xuyên",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-long-xuyen/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "229-231 Lý Thái Tổ, Mỹ Long, Thành phố Long Xuyên, An Giang",
+    "description": "Chi nhánh Diva Spa tại Long Xuyên chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Mỹ Tho",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-my-tho/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "Số 377 Đường Ấp Bắc, Phường 5, Thành phố Mỹ Tho",
+    "description": "Chi nhánh Diva Spa tại Mỹ Tho chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Biên Hòa",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-bien-hoa/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Nam",
+    "address": "Lầu 2, Số 303 Đ. Phan Trung, P. Tân Mai, TP. Biên Hòa, T. Đồng Nai",
+    "description": "Chi nhánh Diva Spa tại Biên Hòa chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Đông Hà",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-dong-ha/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Trung",
+    "address": "Số 109 Quốc Lộ 9, Phường 5, Thành phố Đông Hà, Tỉnh Quảng Trị.",
+    "description": "Chi nhánh Diva Spa tại Đông Hà chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Tuy Hòa",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-tuy-hoa/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Trung",
+    "address": "143 Hùng Vương, Phường 6, Tp.Tuy Hòa – Phú Yên ",
+    "description": "Chi nhánh Diva Spa tại Tuy Hòa chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Gò Công",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-go-cong/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "SỐ 63 LÝ TỰ TRỌNG, P.1, TX. GÒ CÔNG",
+    "description": "Chi nhánh Diva Spa tại Gò Công chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Long Thành",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-long-thanh/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Nam",
+    "address": " số 352 Đường Lê Duẩn – Huyện Long Thành – Tỉnh Đồng Nai",
+    "description": "Chi nhánh Diva Spa tại Long Thành chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Đồng Xoài",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-dong-xoai/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Nam",
+    "address": "Số 33, Đường Phú Riềng Đỏ, Khu phố Phú Thanh, Phường Tân Phú, TP. Đồng Xoài, T. Bình Phước",
+    "description": "Chi nhánh Diva Spa tại Đồng Xoài chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Đà Nẵng",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-da-nang/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Trung",
+    "address": "Số 222, Phan Châu Trinh, P. Nam Dương, Q. Hải Châu, TP. Đà Nẵng. ",
+    "description": "Chi nhánh Diva Spa tại Đà Nẵng chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Vị Thanh",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-vi-thanh/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "CƠ SỞ 1: Số 3003 Hùng Vương, P. Ngã Bảy, TP. Ngã Bảy, T. Hậu Giang, CƠ SỞ 2: PG3 – 03A6, Khu nhà phố Vincom, Đường 3/2, P. 5, TP. Vị Thanh",
+    "description": "Chi nhánh Diva Spa tại Vị Thanh chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Quảng Ninh",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-quang-ninh/",
+    "latest_update": "2019-09-18",
+    "region": "Miền Bắc",
+    "address": "",
+    "description": "Chi nhánh Diva Spa tại Quảng Ninh chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Huế",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-hue/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Trung",
+    "address": " SỐ 86 NGUYỄN HUỆ, P. VĨNH NINH, TP. HUẾ, T. THỪA THIÊN HUẾ",
+    "description": "Chi nhánh Diva Spa tại Huế chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Tây Ninh",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-tay-ninh/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Nam",
+    "address": "Cơ sở 1: L06 – Khu Shophouse MBLAND, Đường 30/4, KP. 1, P. 1, TP. Tây Ninh, T. Tây Ninh, Cơ sở 2: A20, KP. Lộc An, P. Trảng Bàng, TX. Trảng Bàng, T. Tây Ninh",
+    "description": "Chi nhánh Diva Spa tại Tây Ninh chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Trà Vinh",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-tra-vinh/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "Căn PG1 – 08 Khu Nhà Phố Vincom – Đường Phạm Ngũ Lão, TP. Trà Vinh",
+    "description": "Chi nhánh Diva Spa tại Trà Vinh chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Bảo Lộc",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-bao-loc/",
+    "latest_update": "2025-05-21",
+    "region": "Tây Nguyên",
+    "address": "511A đường Trần Phú (Quốc lộ 20) phường 1, Bảo Lộc – Lâm Đồng",
+    "description": "Chi nhánh Diva Spa tại Bảo Lộc chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Bến Tre",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-ben-tre/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "Số 99A22, Đại Lộ Đồng Khởi, KP.2, P. Phú Tân, TP. Bến Tre, T. Bến Tre",
+    "description": "Chi nhánh Diva Spa tại Bến Tre chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Cà Mau",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-ca-mau/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "Căn PG1-01 Khu nhà phố Vincom, Phường 1, TP. Cà Mau",
+    "description": "Chi nhánh Diva Spa tại Cà Mau chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Sa Đéc",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-sa-dec/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "Căn PG1-10 Khu nhà phố Vincom, Đường số 5, P.1 ,TP. Sa Đéc, T. Đồng Tháp",
+    "description": "Chi nhánh Diva Spa tại Sa Đéc chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Châu Đốc",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-chau-doc/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "Số 76 – 78 Phan Văn Vàng, Khóm 5, P. Châu Phú A, TP. Châu Đốc, T. An Giang ",
+    "description": "Chi nhánh Diva Spa tại Châu Đốc chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Châu Phú",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-chau-phu/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": " 16 -18 Hai Bà Trưng, TT. Cái Dầu, H. Châu Phú, T. An Giang.",
+    "description": "Chi nhánh Diva Spa tại Châu Phú chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Sóc Trăng",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-soc-trang/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "Cơ sở 1: Căn PG 02 – 01 Khu nhà phố Vincom Trần Hưng Đạo, P. 2, TP. Sóc Trăng, T. Sóc Trăng, Cơ sở 2: 19 Trưng Nhị, Phường 1, Khóm 3, Thị xã Vĩnh Châu, Tỉnh Sóc Trăng, Cơ sở 3: Số 76 Nguyễn Huệ, Khóm 1, Phường 1, Thị xã Ngã Năm, Tỉnh Sóc Trăng.",
+    "description": "Chi nhánh Diva Spa tại Sóc Trăng chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Cai Lậy",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-cai-lay/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "Số 115 đường 30/04, Khu phố 2, Cai Lậy, Tiền Giang",
+    "description": "Chi nhánh Diva Spa tại Cai Lậy chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Ninh Kiều",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-ninh-kieu/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "Số 109 – 111, Đ. Trần Hưng Đạo, P. An Phú, Q. Ninh Kiều, TP. Cần Thơ",
+    "description": "Chi nhánh Diva Spa tại Ninh Kiều chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Vĩnh Long",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-vinh-long/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Tây",
+    "address": "PG 1-09, Khu nhà phố Vincom, Phạm Thái Bường, P.4, TP. Vĩnh Long.",
+    "description": "Chi nhánh Diva Spa tại Vĩnh Long chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Long An",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-long-an/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Nam",
+    "address": "Số 62, Đường Hùng Vương nối dài, P. 6, Tp. Tân An, T. Long An",
+    "description": "Chi nhánh Diva Spa tại Long An chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Bến Cát",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-ben-cat/",
+    "latest_update": "2025-05-21",
+    "region": "Miền Nam",
+    "address": "LÔ B, Ô SỐ 6 – 7, KĐT. GOLDEN CENTER CITY, KP. 3, P. MỸ PHƯỚC, TX. BẾN CÁT, T. BÌNH DƯƠNG",
+    "description": "Chi nhánh Diva Spa tại Bến Cát chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  },
+  {
+    "name": "Viện thẩm mỹ Diva Đà Lạt",
+    "url": "https://vienthammydiva.vn/chuoi-co-so/vien-tham-my-diva-da-lat/",
+    "latest_update": "2025-05-21",
+    "region": "Tây Nguyên",
+    "address": "Số 244 Hai Bà Trưng, P6, TP. Đà Lạt.",
+    "description": "Chi nhánh Diva Spa tại Đà Lạt chuyên cung cấp dịch vụ làm đẹp và chăm sóc da."
+  }
+]

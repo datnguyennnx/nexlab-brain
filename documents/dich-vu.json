@@ -1,0 +1,38 @@
+[
+  {
+    "service_name": "Chăm sóc da",
+    "service_url": "https://vienthammydiva.vn/cham-soc-da-spa/",
+    "image_url": "https://vienthammydiva.vn/wp-content/uploads/2025/05/service_1.jpg",
+    "image_alt_text": "Chăm sóc da"
+  },
+  {
+    "service_name": "Điều trị da",
+    "service_url": "https://vienthammydiva.vn/dieu-tri-da/",
+    "image_url": "https://vienthammydiva.vn/wp-content/uploads/2025/05/service_2.jpg",
+    "image_alt_text": "Điều trị da"
+  },
+  {
+    "service_name": "Phun thêu thẩm mỹ",
+    "service_url": "https://vienthammydiva.vn/phun-xam-tham-my/",
+    "image_url": "https://vienthammydiva.vn/wp-content/uploads/2025/05/service_3.jpg",
+    "image_alt_text": "Phun thêu thẩm mỹ"
+  },
+  {
+    "service_name": "Phục hồi da",
+    "service_url": "https://vienthammydiva.vn/phuc-hoi-da/",
+    "image_url": "https://vienthammydiva.vn/wp-content/uploads/2025/05/service_4.jpg",
+    "image_alt_text": "Phục hồi da"
+  },
+  {
+    "service_name": "Tắm trắng",
+    "service_url": "https://vienthammydiva.vn/tam-trang-da/",
+    "image_url": "https://vienthammydiva.vn/wp-content/uploads/2025/05/tan-suat-tam-trang-da.avif",
+    "image_alt_text": "Tắm trắng"
+  },
+  {
+    "service_name": "Triệt lông",
+    "service_url": "https://vienthammydiva.vn/triet-long-9/",
+    "image_url": "https://vienthammydiva.vn/wp-content/uploads/2025/05/triet-long-5.png",
+    "image_alt_text": "Triệt lông"
+  }
+]
