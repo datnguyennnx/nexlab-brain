@@ -2,12 +2,39 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from loguru import logger
+import logging
+import sys
+
 from .controllers.v1.router import api_router
 from .database.session import AsyncSessionLocal
 from .repositories.user_repository import UserRepository
 
+# --- Loguru Intercept Handler ---
+class InterceptHandler(logging.Handler):
+    def emit(self, record: logging.LogRecord) -> None:
+        # Get corresponding Loguru level if it exists
+        try:
+            level = logger.level(record.levelname).name
+        except ValueError:
+            level = record.levelno
+
+        # Find caller from where originated the logged message
+        frame, depth = logging.currentframe(), 0
+        while frame and (depth == 0 or frame.f_code.co_filename == logging.__file__):
+            frame = frame.f_back
+            depth += 1
+
+        logger.opt(depth=depth, exception=record.exc_info).log(level, record.getMessage())
+
+def setup_logging():
+    # Intercept everything at the root logger
+    logging.basicConfig(handlers=[InterceptHandler()], level=0, force=True)
+    # Configure Loguru
+    logger.configure(handlers=[{"sink": sys.stdout, "serialize": False}])
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    setup_logging()
     logger.info("Starting up...")
     # On startup
     async with AsyncSessionLocal() as session:

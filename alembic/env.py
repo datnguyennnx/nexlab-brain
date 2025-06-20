@@ -20,6 +20,7 @@ from app.models.base import Base
 from app.models.user import User
 from app.models.conversation import Conversation
 from app.models.message import Message
+from app.models.document_store import DocumentStore
 from app.core.config import settings  # Import settings
 target_metadata = Base.metadata
 
